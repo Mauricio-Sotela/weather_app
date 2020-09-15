@@ -1,0 +1,56 @@
+.temperature__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.24);
+  border-radius: 1rem;
+  color: white;
+  min-height: 300PX;
+}
+.temperature__container > .temperature__time > p {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.temperature__container > .temperature {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.temperature__container > .temperature > .degrees {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  font-size: 6rem;
+
+  font-weight: bold;
+}
+.temperature__container > .temperature > .degrees > .description {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+.temperature__container > .temperature > .logo {
+  text-align: end;
+  width: 50%;
+}
+
+.temperature__container > .temperature > .logo > img {
+  width: 50%;
+}
+.temperature__container > .temperature__info>span:last-of-type {
+margin-left: 3rem;
+font-size: 1.8rem;
+}
+.iconify {
+    font-size: 3rem;
+    margin-right: .5rem;
+    }
