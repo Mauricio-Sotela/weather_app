@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Temperature_card.css";
 
-function Temperature_card(props) {
+function TemperatureCard(props) {
   const date = new Date().toString().substring(0, 24);
   return props.data.base ? (
     <div className="temperature__container">
@@ -50,4 +50,4 @@ function Temperature_card(props) {
   );
 }
 
-export default Temperature_card;
+export default TemperatureCard;

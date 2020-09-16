@@ -3,12 +3,12 @@ import "./css/App.css";
 import axios from "axios";
 
 import Nav from "./components/Nav";
-import Temperature_card from "./components/Temperature_card";
+import TemperatureCard from "./components/Temperature_card";
 // 21885d08c8d573206b3223b5fa6f08fa
 // bb037310921af67f24ba53f2bad48b1d
 const API = {
   API_KEY: "bb037310921af67f24ba53f2bad48b1d",
-  API_BASE: `http://api.openweathermap.org/data/2.5/weather?q=`,
+  API_BASE: `https://api.openweathermap.org/data/2.5/weather?q=`,
 };
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
 
 useEffect(() => {
   getTemperature(city)
-}, [])
+}, [city])
 
 
 
@@ -52,7 +52,7 @@ useEffect(() => {
         keyPress={keyPress}
         onClickHandler={onClickHandler}
       />
-      <Temperature_card data={weather} />
+      <TemperatureCard data={weather} />
     </div>
   );
 }
