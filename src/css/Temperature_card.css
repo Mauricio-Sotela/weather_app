@@ -29,6 +29,7 @@
   background-repeat: no-repeat;
  filter: brightness(0.5);
  transition: all 1s ease;
+ background-image: url(../img/foggy.gif);
 }
 .temperature__container.Clear::before {
   background-image: url(../img/clear.gif);
@@ -38,6 +39,15 @@
 }
 .temperature__container.Rain::before {
   background-image: url(../img/rainy.gif);
+}
+.temperature__container.Snow::before {
+  background-image: url(../img/snow.gif);
+}
+.temperature__container.Drizzle::before {
+  background-image: url(../img/drizzle.gif);
+}
+.temperature__container.Thunderstorm::before {
+  background-image: url(../img/strorm.gif);
 }
 
 .temperature__container > .temperature__time > p {
