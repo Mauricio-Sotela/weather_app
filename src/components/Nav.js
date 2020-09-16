@@ -29,20 +29,7 @@ function Nav(props) {
       </div>
 
       <div className="nav__temperature">
-        <i
-          className="fab"
-          // onClick={() => {props.toCel()
-          // }}
-        >
-          °C
-        </i>
-        <i
-          className="fab"
-          // onClick={() => {props.toFar()
-          // }
-        >
-          °F
-        </i>
+      <i class="fas fa-bars"></i>
       </div>
     </div>
   );
