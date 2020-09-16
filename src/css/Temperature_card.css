@@ -9,17 +9,35 @@
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.24);
   border-radius: 1rem;
-  color: white;
+  color: rgb(255, 254, 253);
   min-height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
-.temperature__container.Clear {
-  background-color: rgba(0, 96, 250, 0.486);
+.temperature__container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+ filter: brightness(0.5);
+ transition: all 1s ease;
 }
-.temperature__container.Clouds {
-  background-color: rgba(0, 250, 217, 0.486);
+.temperature__container.Clear::before {
+  background-image: url(../img/clear.gif);
 }
-.temperature__container.Rain {
-  background-image: url(../img/rainy.jpg);
+.temperature__container.Clouds::before {
+  background-image: url(../img/cloudy.gif);
+}
+.temperature__container.Rain::before {
+  background-image: url(../img/rainy.gif);
 }
 
 .temperature__container > .temperature__time > p {
