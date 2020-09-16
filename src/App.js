@@ -40,7 +40,7 @@ function App() {
 
 useEffect(() => {
   getTemperature(city)
-}, [city])
+}, [])
 
 
 
