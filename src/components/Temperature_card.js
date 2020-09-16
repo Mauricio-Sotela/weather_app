@@ -4,7 +4,13 @@ import "../css/Temperature_card.css";
 function TemperatureCard(props) {
   const date = new Date().toString().substring(0, 24);
   return props.data.base ? (
-    <div className="temperature__container">
+    <div
+      className={
+        props.data.weather[0].main
+          ? `temperature__container ${props.data.weather[0].main}`
+          : "temperature__container"
+      }
+    >
       <div className="temperature__time">
         <p>{`${props.data.name}, ${props.data.sys.country}   `}</p>
         <span>{date}</span>

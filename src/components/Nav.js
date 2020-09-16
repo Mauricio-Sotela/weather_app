@@ -31,19 +31,15 @@ function Nav(props) {
       <div className="nav__temperature">
         <i
           className="fab"
-          // onClick={() => {
-          //   setState({ unit: "metric" });
-          //   console.log(props.state);
+          // onClick={() => {props.toCel()
           // }}
         >
           °C
         </i>
         <i
           className="fab"
-          // onClick={() => {
-          //   setState({ unit: "imperial" });
-          //   console.log(props.state);
-          // }}
+          // onClick={() => {props.toFar()
+          // }
         >
           °F
         </i>
