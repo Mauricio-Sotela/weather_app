@@ -89,6 +89,12 @@
   margin-left: 3rem;
   font-size: 1.8rem;
 }
+.iconify {
+  color: #e26a44;
+}
+.iconify2 {
+  color:#f3a148;
+}
 .daily__weather {
   display: flex;
   overflow-x: scroll;

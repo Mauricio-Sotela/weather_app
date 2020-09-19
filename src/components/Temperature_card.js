@@ -59,7 +59,7 @@ console.log(dailyWeather);
         </span>
         <span>
           <span
-            className="iconify"
+            className="iconify iconify2"
             data-icon="whh:sunset"
             data-inline="false"
           ></span>
