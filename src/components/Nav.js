@@ -29,7 +29,7 @@ function Nav(props) {
       </div>
 
       <div className="nav__temperature">
-      <i class="fas fa-bars"></i>
+      <i className="fas fa-bars"></i>
       </div>
     </div>
   );

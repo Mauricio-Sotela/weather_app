@@ -5,22 +5,44 @@ import axios from "axios";
 import Nav from "./components/Nav";
 import TemperatureCard from "./components/Temperature_card";
 import Mapp from "./components/Map";
-// 21885d08c8d573206b3223b5fa6f08fa ALTERNATIVE KEY
-// bb037310921af67f24ba53f2bad48b1d ALTERNATIVE KEY
+
 const API = {
-  API_KEY: "bb037310921af67f24ba53f2bad48b1d",
-  API_BASE: `https://api.openweathermap.org/data/2.5/weather?q=`,
+  API_KEY: "439d4b804bc8187953eb36d2a8c26a02",
+  API_BASE: `https://openweathermap.org/data/2.5/`,
 };
+
 
 function App() {
   const [city, setCity] = useState("Berlin");
   const [weather, setWeather] = useState({});
+  const [info, setInfo] = useState({});
+  const [date, setDate] = useState(0);
+ 
+  function tm(unix) {
+    var dt = new Date(unix * 1000).toString().substring(0, 24);
+    return `${dt}`;
+  }
+
   function getTemperature(city) {
     axios
-      .get(`${API.API_BASE}${city}&units=metric&APPID=${API.API_KEY}`)
+      .get(`${API.API_BASE}weather?q=${city}&units=metric&appid=${API.API_KEY}`)
       .then((res) => {
         setWeather(res.data);
         setCity("");
+        getDetail(res.data.coord.lat, res.data.coord.lon);
+      });
+  }
+
+  function getDetail(lat, lon) {
+    axios
+      .get(
+        `${API.API_BASE}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API.API_KEY}`
+      )
+      .then((res) => {
+        setInfo(res.data);
+        setDate(
+          tm(res.data.timezone_offset + res.data.current.dt - 2 * 60 * 60)
+        );
       });
   }
 
@@ -30,6 +52,7 @@ function App() {
   const keyPress = (e) => {
     if (e.keyCode === 13) {
       onClickHandler();
+      e.target.value = "";
     }
   };
 
@@ -40,6 +63,8 @@ function App() {
   useEffect(() => {
     getTemperature(city);
   }, []);
+  
+  console.log(info);
 
   return (
     <div className="main__container">
@@ -49,7 +74,7 @@ function App() {
         keyPress={keyPress}
         onClickHandler={onClickHandler}
       />
-      <TemperatureCard data={weather} />
+      <TemperatureCard data={info} data2={weather} date={date} />
       <Mapp location={weather} />
     </div>
   );
