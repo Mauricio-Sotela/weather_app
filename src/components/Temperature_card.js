@@ -19,7 +19,7 @@ import DailyWeather from "./DailyWeather";
       }
     >
       <div className="temperature__time">
-        {/* <p>{`${props.data2.name}, ${props.data2.sys.country}   `}</p> */}
+        <p>{`${props.data2.name}, ${props.data2.sys.country}   `}</p>
         <span>{date}</span>
       </div>
       <div className="temperature">
