@@ -2,7 +2,6 @@ import React from "react";
 import '../css/DailyWeather.css'
 
 function DailyWeather(props) {
-  console.log(props);
 
   return (
     <div className="daily">

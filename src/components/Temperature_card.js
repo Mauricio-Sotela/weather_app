@@ -8,7 +8,7 @@ import DailyWeather from "./DailyWeather";
   const dailyWeather =props.data.daily?  props.data.daily.map((day) => {
     return <DailyWeather key={day.dt} data={day} />;
   }):'';
-console.log(dailyWeather);
+
 
   return props.data.daily ? (
     <div
@@ -19,7 +19,7 @@ console.log(dailyWeather);
       }
     >
       <div className="temperature__time">
-        <p>{`${props.data2.name}, ${props.data2.sys.country}   `}</p>
+        {/* <p>{`${props.data2.name}, ${props.data2.sys.country}   `}</p> */}
         <span>{date}</span>
       </div>
       <div className="temperature">

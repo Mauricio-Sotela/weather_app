@@ -11,13 +11,12 @@ const API = {
   API_BASE: `https://openweathermap.org/data/2.5/`,
 };
 
-
 function App() {
   const [city, setCity] = useState("Berlin");
   const [weather, setWeather] = useState({});
   const [info, setInfo] = useState({});
   const [date, setDate] = useState(0);
- 
+
   function tm(unix) {
     var dt = new Date(unix * 1000).toString().substring(0, 24);
     return `${dt}`;
@@ -43,6 +42,7 @@ function App() {
         setDate(
           tm(res.data.timezone_offset + res.data.current.dt - 2 * 60 * 60)
         );
+        console.log(res.data);
       });
   }
 
@@ -61,10 +61,17 @@ function App() {
   };
 
   useEffect(() => {
-    getTemperature(city);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        getDetail(lat, lon);
+      });
+    } else {
+      getTemperature(city);
+    }
   }, []);
-  
-  console.log(info);
 
   return (
     <div className="main__container">
